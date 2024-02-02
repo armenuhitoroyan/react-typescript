@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import { Container } from "@mui/material";
+import TaskList from "./components/tasks/TaskList";
+import { Colors } from "./enums/Colors";
+import DrawingBoard from "./components/drawing/DrawingBoard";
 
 function App() {
+
+ type ColorsType = typeof Colors;
+//  const red: ColorsType = Colors.Red;
+
+ 
+
+  const tasks = [
+    {
+      id: 1,
+      title: "title 1",
+      completed: false,
+    },
+    {
+      id: 2,
+      title: "title 2",
+      completed: false,
+    },
+    {
+      id: 3,
+      title: "title 3",
+      completed: false,
+    },
+    {
+      id: 4,
+      title: "title 4",
+      completed: true,
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Container>
+        <TaskList tasks={tasks} />
+      </Container>
+      <DrawingBoard  drawingItem={[]}/>
+    </Fragment>
   );
-}
+} 
 
 export default App;
